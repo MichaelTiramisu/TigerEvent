@@ -14,6 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (NSString *)getDescription;
 
+- (NSString *)getNetworkDescription;
+
 @end
 
 NS_ASSUME_NONNULL_END

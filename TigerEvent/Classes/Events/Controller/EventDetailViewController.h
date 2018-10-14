@@ -7,10 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <TigerEvent-Swift.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface EventDetailViewController : UIViewController
+
+@property (nonatomic, strong) Event *event;
 
 @end
 

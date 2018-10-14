@@ -17,4 +17,11 @@
     return [formatter stringFromDate:self];
 }
 
+- (NSString *)getNetworkDescription {
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    formatter.dateFormat = @"yyyy-MM-dd'T'HH:mm:ss";
+    formatter.timeZone = [NSTimeZone timeZoneForSecondsFromGMT:-6];
+    return [formatter stringFromDate:self];
+}
+
 @end

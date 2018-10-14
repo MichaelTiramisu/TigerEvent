@@ -6,8 +6,13 @@ target 'TigerEvent' do
   use_frameworks!
 
   # Pods for TigerEvent
-  pod 'FoldingCell', '~> 4.0.1'
   pod 'AFNetworking', '~> 3.2.1'
+  pod 'MJExtension', '~> 3.0.15.1'
+  pod 'SDWebImage', '~> 4.4.2'
+  pod 'SnapKit', '~> 4.0.1'
+  pod 'GoogleSignIn'
+  pod 'p2.OAuth2', '~> 4.0.1'
+  pod 'SwiftyJSON'
 
   target 'TigerEventTests' do
     inherit! :search_paths

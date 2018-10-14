@@ -10,10 +10,13 @@ import UIKit
 
 class EventCell: UITableViewCell {
 
+    @IBOutlet weak var titleTextLabel: UILabel!
+    @IBOutlet weak var eventTimeLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
+
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

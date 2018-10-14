@@ -9,5 +9,48 @@
 import UIKit
 
 class Event: NSObject {
+    
+    var eventId: String!
+    var title: String!
+    var desc: String!
+    var department: NSNumber!
+    var eventTime: Date!
+    var imageUrl: String!
+    var submitTime: Date!
+    var location: String!
 
+    override static func mj_replacedKeyFromPropertyName() -> [AnyHashable : Any]! {
+        return ["eventId": "id",
+                "desc": "description",
+                "imageUrl": "image",
+                "submitTime": "submissionTime"
+        ]
+    }
+    
+    override func mj_newValue(fromOldValue oldValue: Any!, property: MJProperty!) -> Any! {
+        if property.name == "eventTime" || property.name == "submitTime" {
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+            formatter.timeZone = TimeZone(secondsFromGMT: -6)
+            let date = formatter.date(from: oldValue as! String)
+            return date
+        }
+        return oldValue;
+    }
+}
+
+extension Date {
+    public func getDescription() -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy/MM/dd HH:mm"
+        formatter.timeZone = TimeZone(secondsFromGMT: -6)
+        return formatter.string(from: self)
+    }
+    
+    public func getNetworkDescription() -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+        formatter.timeZone = TimeZone(secondsFromGMT: -6)
+        return formatter.string(from: self)
+    }
 }

@@ -14,11 +14,11 @@ import SwiftyJSON
 class OutlookService {
     // Configure the OAuth2 framework for Azure
     private static let oauth2Settings = [
-        "client_id" : "28ce345c-ee1e-4e27-b277-e3c4c9eba4d7",
+        "client_id" : "447d7746-669f-4a93-aa02-6e7709f22720",
         "authorize_uri": "https://login.microsoftonline.com/common/oauth2/v2.0/authorize",
         "token_uri": "https://login.microsoftonline.com/common/oauth2/v2.0/token",
         "scope": "openid profile offline_access User.Read Mail.Read Calendars.Read Contacts.Read Calendars.Read.Shared Calendars.ReadWrite Calendars.ReadWrite.Shared User.Read",
-        "redirect_uris": ["TigerEvent://oauth2/callback"],
+        "redirect_uris": ["tigerevent://oauth2/callback"],
         "verbose": true,
         ] as OAuth2JSON
     

@@ -9,7 +9,9 @@
 #ifndef Pods_Bridging_Header_h
 #define Pods_Bridging_Header_h
 
-#import "AFNetworking.h"
+#import <AFNetworking/AFNetworking.h>
+#import <MJExtension/MJExtension.h>
+//#import "EventDetailViewController.h"
 //#import "MBProgressHUD/MBProgressHUD.h"
 
 #endif /* Pods_Bridging_Header_h */
