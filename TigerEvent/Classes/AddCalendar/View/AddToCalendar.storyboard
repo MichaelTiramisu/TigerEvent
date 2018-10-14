@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina5_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Add Calendar View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="AddCalendarViewController" customModule="TigerEvent" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2gJ-6k-GyJ">
+                                <rect key="frame" x="84" y="359" width="239" height="67"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="GoogleLoginImg"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B17-q9-aOS">
+                                <rect key="frame" x="84" y="479" width="239" height="69"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Apple Calendar" image="apple"/>
+                                <connections>
+                                    <action selector="addToAppleCalendarButtonClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fb5-8X-HHa"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kDQ-69-fIn">
+                                <rect key="frame" x="75" y="222" width="248" height="57"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="ms"/>
+                                <connections>
+                                    <action selector="addToMSCalendarClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cCz-Qm-zJI"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="7kH-cP-SgG"/>
+                    <connections>
+                        <outlet property="googleLoginBtn" destination="2gJ-6k-GyJ" id="Qbt-ra-9zI"/>
+                        <outlet property="outlookBtn" destination="kDQ-69-fIn" id="Y7J-hU-6xs"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-352.17391304347831" y="-627.71739130434787"/>
+        </scene>
+        <!--Main View Controller-->
+        <scene sceneID="REf-0Q-GMg">
+            <objects>
+                <viewController id="EmF-Il-5w5" customClass="MainViewController" customModule="TigerEvent" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vIB-YW-LmR">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sxb-S2-cQx">
+                                <rect key="frame" x="184" y="363" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="addBtnClicked:" destination="EmF-Il-5w5" eventType="touchUpInside" id="dGR-3w-SNa"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Sxb-S2-cQx" firstAttribute="centerY" secondItem="hKQ-43-t3d" secondAttribute="centerY" id="VKD-ua-PGr"/>
+                            <constraint firstItem="Sxb-S2-cQx" firstAttribute="centerX" secondItem="hKQ-43-t3d" secondAttribute="centerX" id="fDt-xK-8bN"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="hKQ-43-t3d"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="25M-PN-dho" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="470" y="-628"/>
+        </scene>
+        <!--Google Sign In View Controller-->
+        <scene sceneID="dDK-zZ-HmK">
+            <objects>
+                <viewController id="g88-5D-2wo" customClass="GoogleSignInViewController" customModule="TigerEvent" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sbg-uw-waA">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SsG-l5-e6E">
+                                <rect key="frame" x="0.0" y="20" width="414" height="716"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ftd-ah-eps" firstAttribute="bottom" secondItem="SsG-l5-e6E" secondAttribute="bottom" id="DGA-c4-H0k"/>
+                            <constraint firstItem="ftd-ah-eps" firstAttribute="trailing" secondItem="SsG-l5-e6E" secondAttribute="trailing" id="fgX-Vz-bKZ"/>
+                            <constraint firstItem="SsG-l5-e6E" firstAttribute="top" secondItem="ftd-ah-eps" secondAttribute="top" id="wee-Ox-Kc8"/>
+                            <constraint firstItem="SsG-l5-e6E" firstAttribute="leading" secondItem="ftd-ah-eps" secondAttribute="leading" id="xJv-Kd-vNl"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ftd-ah-eps"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Hce-rf-8GZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-352" y="114"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="GoogleLoginImg" width="528" height="164"/>
+        <image name="apple" width="662.8800048828125" height="192"/>
+        <image name="ms" width="243" height="58"/>
+    </resources>
+</document>
