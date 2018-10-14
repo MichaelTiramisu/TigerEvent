@@ -10,7 +10,7 @@ import Foundation
 
 class NetworkUrl: NSObject {
     
-    public static let SURVER_PREFIX = "http://tigerhackapi.azurewebsites.net/"
+    public static let SURVER_PREFIX = "https://tigerhack-219301.appspot.com/"
     
     public static let GET_ALL_EVENTS = SURVER_PREFIX + "api/events"
 

@@ -60,6 +60,10 @@ class OutlookService {
                 if let unwrappedResult = result, let token = unwrappedResult["access_token"] as? String {
                     // Print the access token to debug log
                     NSLog("Access token: \(token)")
+                    let userDefault = UserDefaults.standard
+                    userDefault.set(token, forKey: "MSToken")
+                    userDefault.synchronize()
+                    
                     callback(nil)
                 }
             }

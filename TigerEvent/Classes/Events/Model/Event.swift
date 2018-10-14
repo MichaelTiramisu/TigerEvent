@@ -10,6 +10,20 @@ import UIKit
 
 class Event: NSObject {
     
+//    enum Department
+//    {
+//        case ArtAndCultureJournalism,
+//        BusinessAndEconomicsJournalism,
+//        DataJournalism,
+//        InternationalJournalism,
+//        SportsJournalism,
+//        CivilAndEnvironmentalEngineering,
+//        ElectricalEngineeringAndCompouterScience,
+//        InformationTechnology,
+//        IndustrialAndManufacturingSystemEngineering,
+//        MechanicalAndAerospceEngineering
+//    }
+    
     var eventId: String!
     var title: String!
     var desc: String!
@@ -37,6 +51,11 @@ class Event: NSObject {
         }
         return oldValue;
     }
+    
+    //public func getDepartmentDesc() {
+      //  let department = Department
+//        return
+    //}
 }
 
 extension Date {
