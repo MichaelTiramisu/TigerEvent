@@ -88,10 +88,11 @@
             if (value == nil) {
                 continue;
             }
-            if ([ivarStr isEqualToString:@"department"]) {
-                NSInteger departNo = [value integerValue];
-                value = [NSString stringWithFormat:@"%ld", departNo];
-            } else if ([ivarStr isEqualToString:@"eventTime"] || [ivarStr isEqualToString:@"submitTime"]) {
+//            if ([ivarStr isEqualToString:@"department"]) {
+//                NSInteger departNo = [value integerValue];
+//                value = [NSString stringWithFormat:@"%ld", departNo];
+//            } else
+                if ([ivarStr isEqualToString:@"eventTime"] || [ivarStr isEqualToString:@"submitTime"]) {
                 value = [value getDescription];
             }
             WGProperty *property = [[WGProperty alloc] initWithTitle:mapping[ivarStr] ?: ivarStr andDescription:value];

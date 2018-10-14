@@ -8,13 +8,28 @@
 
 import UIKit
 import EventKit
+import GoogleSignIn
+import SwiftyJSON
 
-class AddCalendarViewController: UIViewController {
+struct Time:Codable{
+    let dateTime: String
+    let timeZone: String
+}
+struct Post:Codable{
+    let end : Time
+    let start : Time
+    let location : String
+    let summary : String
+    let description : String
+}
+
+class AddCalendarViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDelegate {
     
     var event: Event!
     
     @IBOutlet weak var outlookBtn: UIButton!
-    @IBOutlet weak var googleLoginBtn: UIButton!
+    
+    var googleSignInButton: GIDSignInButton?
     
     let service = OutlookService.shared()
     var token:String?
@@ -23,6 +38,30 @@ class AddCalendarViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setLogInState(loggedIn: service.isLoggedIn)
+        
+        // GOOGLE
+        GIDSignIn.sharedInstance().clientID = "483455703032-87b1g717lq452nbc6isq60np79pmmn2j.apps.googleusercontent.com"
+        GIDSignIn.sharedInstance()?.scopes = ["https://www.googleapis.com/auth/calendar.readonly", "https://www.googleapis.com/auth/calendar"]
+        GIDSignIn.sharedInstance()?.uiDelegate = self
+        GIDSignIn.sharedInstance()?.delegate = self
+        if(GIDSignIn.sharedInstance().hasAuthInKeychain()){
+            GIDSignIn.sharedInstance().signOut()
+        }
+        
+        googleSignInButton = GIDSignInButton()
+        //googleSignInButton.frame = CGRect(x: 100, y: 100, width: 250, height: 200)
+        googleSignInButton!.frame = CGRect(x: 100, y: 200, width: 240, height: 170)
+        googleSignInButton!.center = view.center
+//        let image = UIImage(named: "GoogleLoginImg")
+//        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 240, height: 170))
+//        imageView.image = image
+//        for view in googleSignInButton!.subviews {
+//            view.removeFromSuperview()
+//        }
+//        googleSignInButton!.addSubview(imageView)
+
+        
+        view.addSubview(googleSignInButton!)
     }
     
     
@@ -152,5 +191,81 @@ class AddCalendarViewController: UIViewController {
         task.resume()
     }
     
+    
+    // GOOGLE
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+        if error != nil{
+            print(error ?? "some error")
+            return;
+        }
+        if (GIDSignIn.sharedInstance().hasAuthInKeychain()){
+            print("signed in1111111")
+            // Forward the user here straight away...
+            token = user.authentication.accessToken
+            userID = user.profile.email.components(separatedBy: "@")[0]
+            refreshToken = user.authentication.refreshToken
+            print("-------------------------")
+            for scope in (GIDSignIn.sharedInstance()?.scopes)!{
+                print(scope)
+            }
+            
+            // 加入日历
+            let startTime = Time(dateTime: self.event.eventTime.getNetworkDescription(), timeZone: "UTC")
+            let endTime = Time(dateTime: Date(timeInterval: 60 * 60, since: self.event.eventTime).getNetworkDescription(), timeZone: "UTC")
+            let post = Post(end: endTime, start: startTime, location: self.event.location, summary: self.event.title, description: self.event.desc)
+            
+            
+            var urlComponents = URLComponents()
+            urlComponents.scheme = "https"
+            urlComponents.host = "www.googleapis.com"
+            urlComponents.path = "/calendar/v3/calendars/primary/events"
+            guard let url = urlComponents.url else { fatalError("Could not create URL from components") }
+            
+            // Specify this request as being a POST method
+            var request = URLRequest(url: url)
+            request.httpMethod = "POST"
+            // Make sure that we include headers specifying that our request's HTTP body
+            // will be JSON encoded
+            var headers = request.allHTTPHeaderFields ?? [:]
+            headers["Content-Type"] = "application/json"
+            //headers["authentication"] = "Bearer \(token!)"
+            request.allHTTPHeaderFields = headers
+            request.addValue("Bearer \(token!)", forHTTPHeaderField: "authorization")
+            
+            for HeaderField in request.allHTTPHeaderFields!{
+                print("-----------")
+                print(HeaderField)
+            }
+            // Now let's encode out Post struct into JSON data...
+            let encoder = JSONEncoder()
+            do {
+                let jsonData = try encoder.encode(post)
+                // ... and set our request's HTTP body
+                request.httpBody = jsonData
+                print("jsonData: ", String(data: request.httpBody!, encoding: .utf8) ?? "no body data")
+            } catch {
+//                completion?(error)
+            }
+            
+            // Create and run a URLSession data task with our JSON encoded POST request
+            let config = URLSessionConfiguration.default
+            let session = URLSession(configuration: config)
+            let task = session.dataTask(with: request) { (responseData, response, responseError) in
+                guard responseError == nil else {
+//                    completion?(responseError!)
+                    return
+                }
+                
+                // APIs usually respond with the data you just sent in your POST request
+                if let data = responseData, let utf8Representation = String(data: data, encoding: .utf8) {
+                    print("response: ", utf8Representation)
+                } else {
+                    print("no readable data received in response")
+                }
+            }
+            task.resume()
+        }
+        
+    }
 }
 

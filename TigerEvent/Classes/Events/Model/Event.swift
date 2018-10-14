@@ -27,7 +27,7 @@ class Event: NSObject {
     var eventId: String!
     var title: String!
     var desc: String!
-    var department: NSNumber!
+    var department: String!
     var eventTime: Date!
     var imageUrl: String!
     var submitTime: Date!

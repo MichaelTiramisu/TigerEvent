@@ -26,6 +26,7 @@
 		29F8F8812172C86E00A3E533 /* AddCalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F8F87E2172C86E00A3E533 /* AddCalendarViewController.swift */; };
 		29F8F8832172C8CF00A3E533 /* AddToCalendar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29F8F8822172C8CF00A3E533 /* AddToCalendar.storyboard */; };
 		29F8F8872172E3CE00A3E533 /* OutlookService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F8F8862172E3CE00A3E533 /* OutlookService.swift */; };
+		29F8F8892173290B00A3E533 /* credentials.plist in Resources */ = {isa = PBXBuildFile; fileRef = 29F8F8882173290B00A3E533 /* credentials.plist */; };
 		371DC7CD45A929D8F69DFE93 /* Pods_TigerEventUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE8F5192825877B205279CF6 /* Pods_TigerEventUITests.framework */; };
 		77B5F3F94DEFDD5D30B452AA /* Pods_TigerEvent.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28AEB77B3A341C727D4D38A8 /* Pods_TigerEvent.framework */; };
 		78E8AD7668CCDFA58BAC9642 /* Pods_TigerEventTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51616F640AACFF11C5DFBCC8 /* Pods_TigerEventTests.framework */; };
@@ -81,6 +82,7 @@
 		29F8F87E2172C86E00A3E533 /* AddCalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCalendarViewController.swift; sourceTree = "<group>"; };
 		29F8F8822172C8CF00A3E533 /* AddToCalendar.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AddToCalendar.storyboard; sourceTree = "<group>"; };
 		29F8F8862172E3CE00A3E533 /* OutlookService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutlookService.swift; sourceTree = "<group>"; };
+		29F8F8882173290B00A3E533 /* credentials.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = credentials.plist; sourceTree = "<group>"; };
 		4DFD2A07C6605AD240FB86B4 /* Pods-TigerEvent.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TigerEvent.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TigerEvent/Pods-TigerEvent.debug.xcconfig"; sourceTree = "<group>"; };
 		51616F640AACFF11C5DFBCC8 /* Pods_TigerEventTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TigerEventTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		69EF7A646A763C176030E637 /* Pods-TigerEventTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TigerEventTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TigerEventTests/Pods-TigerEventTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 				290C448321718F1B00EB3225 /* Pods-Bridging-Header.h */,
 				290C448421718F1B00EB3225 /* AppDelegate.swift */,
 				290C448521718F1B00EB3225 /* Info.plist */,
+				29F8F8882173290B00A3E533 /* credentials.plist */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -441,6 +444,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				290C44972171918B00EB3225 /* Main.storyboard in Resources */,
+				29F8F8892173290B00A3E533 /* credentials.plist in Resources */,
 				29F8F8832172C8CF00A3E533 /* AddToCalendar.storyboard in Resources */,
 				290C44992171A08400EB3225 /* Events.storyboard in Resources */,
 				290C448621718F1B00EB3225 /* LaunchScreen.storyboard in Resources */,

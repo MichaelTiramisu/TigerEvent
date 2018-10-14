@@ -18,13 +18,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2gJ-6k-GyJ">
-                                <rect key="frame" x="84" y="359" width="239" height="67"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="login_background" translatesAutoresizingMaskIntoConstraints="NO" id="aN2-rP-AyS">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button" image="GoogleLoginImg"/>
-                            </button>
+                            </imageView>
+                            <visualEffectView opaque="NO" alpha="0.59999999999999998" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hdo-3W-Bps">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" id="59A-Hb-uMq">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B17-q9-aOS">
-                                <rect key="frame" x="84" y="479" width="239" height="69"/>
+                                <rect key="frame" x="87" y="446" width="239" height="53"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Apple Calendar" image="apple"/>
                                 <connections>
@@ -32,7 +40,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kDQ-69-fIn">
-                                <rect key="frame" x="75" y="222" width="248" height="57"/>
+                                <rect key="frame" x="79" y="241" width="248" height="51"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="ms"/>
                                 <connections>
@@ -45,7 +53,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="7kH-cP-SgG"/>
                     <connections>
-                        <outlet property="googleLoginBtn" destination="2gJ-6k-GyJ" id="Qbt-ra-9zI"/>
                         <outlet property="outlookBtn" destination="kDQ-69-fIn" id="Y7J-hU-6xs"/>
                     </connections>
                 </viewController>
@@ -110,8 +117,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="GoogleLoginImg" width="528" height="164"/>
         <image name="apple" width="662.8800048828125" height="192"/>
+        <image name="login_background" width="1100" height="1650"/>
         <image name="ms" width="243" height="58"/>
     </resources>
 </document>

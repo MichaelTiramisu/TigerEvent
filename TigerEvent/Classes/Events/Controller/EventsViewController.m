@@ -25,6 +25,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"main_background"]];
+    self.tableView.backgroundView = imageView;
+    self.tableView.backgroundColor = UIColor.clearColor;
+    
+    
     [self fetchDate];
 }
 
